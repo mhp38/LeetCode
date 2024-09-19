@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int len = nums.size();
+        set<int>st;
+        for(int i=0;i<len-1;i++){
+            st.insert(nums[i]);
+            // use unique() to bring all the duplicates to end 
+            // and get the ierator for the modified vector 
+            auto it = unique(nums.begin(), nums.end());
+            // Use erase method  to remove all the duplicates 
+            // from the vector 
+            nums.erase(it,nums.end());
+        }
+        st.insert(nums[len-1]);
+        int k = st.size();
+        return k;
+    }
+};
