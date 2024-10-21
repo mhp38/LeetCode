@@ -3,21 +3,27 @@
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+// Idea taken from here(iterative approach) :
+// https://youtu.be/rzXJe1xMHLc?si=Ksd1inMQH2XQGCdc
+
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        ListNode *prv=NULL;
-        ListNode *next=NULL;
+        ListNode* prev = NULL;
+        ListNode* cur = head;
 
-        while(head){
-            next=head->next;
-            head->next=prv;
-            prv=head;
-            head=next;
+        while (cur != NULL) {
+            ListNode* next = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = next;
         }
-        return prv;
+        return prev;
     }
 };
