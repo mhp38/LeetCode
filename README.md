@@ -1,3 +1,3 @@
-# LeetCode_Problems_Solution
+# LitCode(Leetcode)
 
-Problems that i have solved in LeetCode.
+LeetCode problems collection to ace the coding interview. 
